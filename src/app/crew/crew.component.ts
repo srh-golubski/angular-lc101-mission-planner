@@ -24,37 +24,21 @@ export class CrewComponent implements OnInit {
 
   ngOnInit() { }
 
-  addCrewMember(name: string, photo: string) {
-    let candidate: object = {name: name, photo: photo};
+  addCrewMember(member: object) {
     
-    if (this.crew.includes(candidate)) {
+    if (this.crew.includes(member)) {
       this.inCrew = true;
     } else {
       this.inCrew = false;
     }
 
-    if (this.inCrew) {
-      let doubledIndex = this.crew.indexOf(candidate);
-      this.crew.splice(0, 1);
-    } else if (!this.inCrew && this.crew.length < 3) {
-      this.crew.push(candidate);
-    }
-    // if (this.crew.length < 3 && !this.crew.includes(candidate)) {
-    //   this.crew.push(candidate);
-    // } else if (this.crew.includes(candidate)) {
-    //   this.crew.splice(doubleIndex, 1);
-    // }
-    // if (this.crew.length < 3 && doubleIndex < 0) {
-    //   this.crew.push(candidate);
-    // } else if (doubleIndex >= 0) {
-    //   this.crew.splice(doubleIndex, 1)
-    // }
-  //   let doubleCandidate = this.crew.some(name => this.candidates.name === name)
-  //   if (this.crew.includes(candidate)) {
-  //     let candidateIndex = this.crew.indexOf(candidate)
-  //     this.crew.splice(candidateIndex, 1)
-  //   } else if (this.crew.length<3 && !this.crew.includes(candidate)) {
-  //     this.crew.push(candidate)
-  //   }
-  // }
-  }}
+   if (this.inCrew) {
+     let index = this.crew.indexOf(member);
+     this.crew.splice(index, 1);
+   } else if (!this.inCrew && this.crew.length <3) {
+     this.crew.push(member);
+   }
+ 
+   }
+  
+  }
